@@ -1,0 +1,5 @@
+on-static-common (1.2.3) unstable; urgency=low
+
+  * Initial release
+
+ -- Alan Wei <alan.wei@emc.com>  Fri, 14 Oct 2016 03:52:50 +0000
