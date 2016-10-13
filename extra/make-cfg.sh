@@ -17,4 +17,4 @@ else
 fi
 sed -e "s/#REVISION#/${REVISION}/g" \
     -e "s/#COMPONENT#/${COMPONENT}/g" \
-    .bintray-deb.json.in > .bintray.json
+    .bintray-deb.json.in > .bintray-deb.json

@@ -4,6 +4,7 @@ set -ex
 # Ensure we're always in the right directory.
 SCRIPT_DIR="$( cd "$( dirname "$0" )" && pwd )"
 cd $SCRIPT_DIR/..
+output_path=/tmp/on-imagebuilder
 
 # this appends a datestring formatting specifically to be increasing
 # based on the last date of the commit in this branch to provide increasing
@@ -45,12 +46,12 @@ if [ -d packagebuild ]; then
 fi
 mkdir packagebuild
 pushd packagebuild
-rsync -ar ../debian .
+rsync -av ../debian .
 mkdir common
 mkdir pxe
-#sudo cp $output_path/builds/* common/
-#sudo cp $output_path/syslinux/* pxe/
-#sudo cp $output_path/ipxe/* pxe/
+sudo cp $output_path/builds/* common/
+sudo cp $output_path/syslinux/* pxe/
+sudo cp $output_path/ipxe/* pxe/
 git log -n 1 --pretty=format:%h.%ai.%s > commitstring.txt
 dch ${DCHOPTS}
 debuild --no-lintian --no-tgz-check -us -uc
